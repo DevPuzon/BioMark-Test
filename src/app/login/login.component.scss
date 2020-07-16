@@ -1,0 +1,25 @@
+ion-content {
+    div {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+}
+.center{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.passwordIcon{
+    font-size:2rem !important;
+    position: relative !important;
+    top: 22px !important;
+    margin: 0 auto !important;
+}
+.intro-login{
+    background-color: #E1F7EA;  
+}

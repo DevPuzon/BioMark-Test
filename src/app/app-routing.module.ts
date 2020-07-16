@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '', 
+    pathMatch: 'full', redirectTo:'/login'
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+    path: 'login',
+    component:LoginComponent 
+  }, 
+  {
+    path: 'dashboard',
+    component:DashboardComponent
+  }
 ];
 
 @NgModule({
@@ -20,3 +25,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponents = [
+  LoginComponent,
+  DashboardComponent
+]

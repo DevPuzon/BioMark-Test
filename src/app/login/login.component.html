@@ -1,0 +1,70 @@
+<ion-content  >
+  <div> 
+    <ion-col size="12"  size-md="7" size-lg="7" size-sm="12"> 
+      <ion-card >
+        <ion-row>
+          <ion-col class="ion-no-padding intro-login"
+          size="12"
+          size-md="6"
+          size-lg="6"
+          size-sm="12">
+            <div class="center">
+              <ion-label class="ion-text-center " style="padding: 10px;" >
+                <ion-text><h1 style="color: #1E1E1E;">Welcome to</h1></ion-text>
+                <img src="../../assets/unnamed (1).png" style="width:220px">
+              </ion-label> 
+            </div>
+          </ion-col>
+          <ion-col class="ion-no-padding" style="height: 100%; padding: 10px;"
+          size="12"
+          size-md="6"
+          size-lg="6"
+          size-sm="12"> 
+          <form [formGroup]="loginForm" (keydown.enter)="onClickLogin()" (ngSubmit)="onClickLogin()"> 
+            <ion-item color="transparent" style=" margin-top: 30px;" class="ion-no-padding">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input  formControlName="email"></ion-input>
+            </ion-item>
+            <div *ngIf="submitted && f.email.errors">  
+              <div class="error-text">{{(f.email.errors.required) ? 'Email is required' :
+                (f.email.errors) ? 'Email is not valid.' :  ''}}</div>
+            </div>
+            <ion-item color="transparent" style=" margin-top: 30px;" class="ion-no-padding">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input formControlName="password"  type="{{typePass}}"></ion-input>
+              <ion-icon class="passwordIcon" slot="end" name="{{imgPass}}" (click)="onClickShow()"></ion-icon>
+            </ion-item>
+            <div *ngIf="submitted && f.password.errors">  
+              <div class="error-text">{{(f.password.errors.required) ? 'Password is required' :
+                (f.password.errors.minlength) ? 'Password must be at least 6 characters' :  ''}}</div>
+            </div>
+            <div style="
+            margin-top: 8px;"> 
+              <p style="
+              width: 100%;
+              text-align: left;"> <a style="cursor: pointer; text-decoration: none;" > Create an account</a></p>
+              <p style="
+              width: 100%;
+              text-align: right;"><a style="  text-decoration: none;"  >Forgot password?</a></p>
+            </div> 
+            
+            <ion-button (click)="onClickLogin()"   style=" margin-top: 18px; width: 100%;"  > 
+              Sign in</ion-button>
+            <div style=" margin-bottom: 12px; margin-top: 12px; text-align: center;"> 
+              OR
+            </div>
+            <ion-button fill="outline" style=" width: 100%; "  color="dark" >
+              <ion-icon style=" margin-right: 10px;" name="logo-google"></ion-icon>
+              Sign in with google
+            </ion-button>
+          </form>
+              <div><p style="
+                margin-top: 5px;
+                width: 180px;
+    text-align: center;">By signing this I've agreed the <a style="  text-decoration: none;" >Privacy Policy</a></p></div>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-col>
+  </div>
+ </ion-content>  
